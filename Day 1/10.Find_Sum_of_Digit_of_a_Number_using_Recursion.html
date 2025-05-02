@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sum of Digits using Recursion - Python Program</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef5f9;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #34495e;
+    }
+    .btn {
+      background-color: #2e86de;
+      color: #fff;
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+      border: none;
+      margin-top: 10px;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .btn:hover {
+      background-color: #1b4f72;
+    }
+    .content {
+      display: none;
+      background: #fff;
+      padding: 15px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Python Program: Sum of Digits using Recursion</h1>
+
+<!-- Buttons and Sections -->
+<button class="btn" onclick="toggle('desc')">Problem Description</button>
+<div class="content" id="desc">
+  <p>This program takes a number as input and uses a recursive function to calculate the sum of its digits.</p>
+</div>
+
+<button class="btn" onclick="toggle('solution')">Problem Solution</button>
+<div class="content" id="solution">
+  <ol>
+    <li>Define a recursive function that extracts each digit of the number.</li>
+    <li>Store digits in a list using recursion.</li>
+    <li>Calculate the sum of the list after recursion ends.</li>
+    <li>Print the final result.</li>
+  </ol>
+</div>
+
+<button class="btn" onclick="toggle('code')">Source Code</button>
+<div class="content" id="code">
+  <p><strong>Python Code:</strong></p>
+  <pre>
+l = []
+def sum_digits(b):
+    if b == 0:
+        return l
+    dig = b % 10
+    l.append(dig)
+    sum_digits(b // 10)
+
+n = int(input("Enter a number: "))
+sum_digits(n)
+print(sum(l))
+  </pre>
+</div>
+
+<button class="btn" onclick="toggle('explanation')">Program Explanation</button>
+<div class="content" id="explanation">
+  <p>
+    1. The function <code>sum_digits()</code> uses recursion to extract digits from the number.<br>
+    2. Each digit is obtained using <code>% 10</code> and added to list <code>l</code>.<br>
+    3. The function calls itself with <code>b // 10</code> until <code>b</code> becomes 0.<br>
+    4. After recursion ends, the sum of the list <code>l</code> is calculated and printed.
+  </p>
+</div>
+
+<button class="btn" onclick="toggle('testcases')">Runtime Test Cases</button>
+<div class="content" id="testcases">
+  <p><strong>Case 1:</strong></p>
+  <pre>
+Enter a number: 135
+9
+  </pre>
+
+  <p><strong>Case 2:</strong></p>
+  <pre>
+Enter a number: 546
+15
+  </pre>
+</div>
+
+<!-- JS Script -->
+<script>
+  function toggle(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</body>
+</html>

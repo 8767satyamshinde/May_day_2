@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Program: Odd or Even</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tab-button {
+      background-color: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px 5px 0 0;
+      font-weight: bold;
+    }
+    .tab-button.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: white;
+      border-radius: 0 0 5px 5px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .code-block {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    .explanation {
+      background-color: #eef6f8;
+      padding: 10px;
+      border-left: 4px solid #4CAF50;
+      margin-top: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    button.explain-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🧮 Python Program to Check Odd or Even (Multiple Methods)</h1>
+
+<div class="tabs">
+  <button class="tab-button active" onclick="openTab(event, 'modulus')">Method 1: Modulus</button>
+  <button class="tab-button" onclick="openTab(event, 'bitwise')">Method 2: Bitwise</button>
+  <button class="tab-button" onclick="openTab(event, 'recursion')">Method 3: Recursion</button>
+  <button class="tab-button" onclick="openTab(event, 'lambda')">Method 4: Lambda</button>
+</div>
+
+<!-- Method 1 -->
+<div id="modulus" class="tab-content active">
+  <h2>🧠 Using Modulus Operator</h2>
+  <p>This method checks if a number is divisible by 2 using <code>%</code>.</p>
+  <div class="code-block">
+<pre>
+n = int(input("Enter a number: "))
+if n % 2 == 0:
+    print(n, "is an even number.")
+else:
+    print(n, "is an odd number.")
+</pre>
+  </div>
+  <button class="explain-btn" onclick="toggleExplanation('mod-exp')">Show Explanation</button>
+  <div id="mod-exp" class="explanation">
+    <p><strong>Explanation:</strong> The modulus operator (%) returns the remainder. If it's 0 when divided by 2, it's even; otherwise, it's odd.</p>
+    <p><strong>Time Complexity:</strong> O(1)</p>
+    <p><strong>Space Complexity:</strong> O(1)</p>
+  </div>
+</div>
+
+<!-- Method 2 -->
+<div id="bitwise" class="tab-content">
+  <h2>🧠 Using Bitwise Operator</h2>
+  <p>This method checks the least significant bit using <code>&</code>.</p>
+  <div class="code-block">
+<pre>
+n = int(input("Enter a number: "))
+if n & 1:
+    print(n, "is an odd number.")
+else:
+    print(n, "is an even number.")
+</pre>
+  </div>
+  <button class="explain-btn" onclick="toggleExplanation('bit-exp')">Show Explanation</button>
+  <div id="bit-exp" class="explanation">
+    <p><strong>Explanation:</strong> The bitwise AND with 1 checks the last binary digit. If it's 1, the number is odd; if 0, it's even.</p>
+    <p><strong>Time Complexity:</strong> O(1)</p>
+    <p><strong>Space Complexity:</strong> O(1)</p>
+  </div>
+</div>
+
+<!-- Method 3 -->
+<div id="recursion" class="tab-content">
+  <h2>🧠 Using Recursion</h2>
+  <p>This method subtracts 2 recursively until it reaches 0 (even) or 1 (odd).</p>
+  <div class="code-block">
+<pre>
+def check(n):
+    if n < 2:
+        return (n % 2 == 0)
+    return check(n - 2)
+
+n = int(input("Enter number: "))
+if check(n):
+    print("Number is even!")
+else:
+    print("Number is odd!")
+</pre>
+  </div>
+  <button class="explain-btn" onclick="toggleExplanation('rec-exp')">Show Explanation</button>
+  <div id="rec-exp" class="explanation">
+    <p><strong>Explanation:</strong> Recursion subtracts 2 from the number repeatedly. Even if it reaches 0, odd if 1.</p>
+    <p><strong>Time Complexity:</strong> O(n)</p>
+    <p><strong>Space Complexity:</strong> O(n) due to call stack.</p>
+  </div>
+</div>
+
+<!-- Method 4 -->
+<div id="lambda" class="tab-content">
+  <h2>🧠 Using Lambda Function</h2>
+  <p>This method uses a short inline lambda function.</p>
+  <div class="code-block">
+<pre>
+check_number = lambda num: "even" if num % 2 == 0 else "odd"
+
+number = int(input("Enter a number: "))
+result = check_number(number)
+
+print(number, "is an", result, "number.")
+</pre>
+  </div>
+  <button class="explain-btn" onclick="toggleExplanation('lam-exp')">Show Explanation</button>
+  <div id="lam-exp" class="explanation">
+    <p><strong>Explanation:</strong> A lambda is a short anonymous function. This one returns "even" or "odd" based on % 2.</p>
+    <p><strong>Time Complexity:</strong> O(1)</p>
+    <p><strong>Space Complexity:</strong> O(1)</p>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+function openTab(evt, tabName) {
+  const tabs = document.getElementsByClassName("tab-content");
+  const buttons = document.getElementsByClassName("tab-button");
+  for (let tab of tabs) tab.classList.remove("active");
+  for (let btn of buttons) btn.classList.remove("active");
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+
+function toggleExplanation(id) {
+  const exp = document.getElementById(id);
+  exp.style.display = exp.style.display === "none" ? "block" : "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Integers Not Divisible by 2 or 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      text-align: center;
+      color: #343a40;
+    }
+    .btn {
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      margin-top: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+    .content {
+      display: none;
+      background-color: white;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    pre {
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Python Program: Integers Not Divisible by 2 or 3</h1>
+
+<!-- Problem Name -->
+<button class="btn" onclick="toggleContent('problemName')">Problem Name</button>
+<div class="content" id="problemName">
+  <p><strong>Python Program to Print All Integers that Aren’t Divisible by Either 2 or 3</strong></p>
+</div>
+
+<!-- Problem Description -->
+<button class="btn" onclick="toggleContent('problemDescription')">Problem Description</button>
+<div class="content" id="problemDescription">
+  <p>This program prints all integers from 1 to 50 that are <strong>not divisible by either 2 or 3</strong>.</p>
+</div>
+
+<!-- Problem Solution -->
+<button class="btn" onclick="toggleContent('problemSolution')">Problem Solution</button>
+<div class="content" id="problemSolution">
+  <ol>
+    <li>Use a <code>for</code> loop from 0 to 50.</li>
+    <li>Use <code>if</code> condition to check <code>i % 2 != 0 and i % 3 != 0</code>.</li>
+    <li>If true, print the number.</li>
+  </ol>
+</div>
+
+<!-- Python Code -->
+<button class="btn" onclick="toggleContent('pythonCode')">Python Code and Output</button>
+<div class="content" id="pythonCode">
+  <p><strong>Python Program:</strong></p>
+  <pre>
+for i in range(0, 51):
+    if(i % 2 != 0 and i % 3 != 0):
+        print(i)
+  </pre>
+
+  <p><strong>Note:</strong> Corrected <code>if(i%2!=0 & i%3!=0)</code> to use logical <code>and</code> operator.</p>
+
+  <p><strong>Output:</strong></p>
+  <pre>
+1
+5
+7
+11
+13
+17
+19
+23
+25
+29
+31
+35
+37
+41
+43
+47
+49
+  </pre>
+</div>
+
+<script>
+  function toggleContent(id) {
+    var element = document.getElementById(id);
+    element.style.display = (element.style.display === "block") ? "none" : "block";
+  }
+</script>
+
+</body>
+</html>

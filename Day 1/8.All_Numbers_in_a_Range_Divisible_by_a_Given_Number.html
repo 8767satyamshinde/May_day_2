@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Numbers in Range Divisible by Given Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #34495e;
+    }
+    .btn {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 6px;
+    }
+    .btn:hover {
+      background-color: #1c5980;
+    }
+    .content {
+      display: none;
+      padding: 15px;
+      background-color: #ffffff;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Python Program: Range Numbers Divisible by a Given Number</h1>
+
+<!-- Problem Description -->
+<button class="btn" onclick="toggleContent('desc')">Problem Description</button>
+<div class="content" id="desc">
+  <p>The program takes a lower and upper range and a number, then prints all numbers in the range that are divisible by the given number.</p>
+</div>
+
+<!-- Problem Solution -->
+<button class="btn" onclick="toggleContent('solution')">Problem Solution</button>
+<div class="content" id="solution">
+  <ol>
+    <li>Take lower and upper range input from the user.</li>
+    <li>Take a number from the user to divide by.</li>
+    <li>Use a loop to iterate through the range.</li>
+    <li>Print numbers where remainder of number divided by given number is 0.</li>
+  </ol>
+</div>
+
+<!-- Source Code -->
+<button class="btn" onclick="toggleContent('code')">Source Code</button>
+<div class="content" id="code">
+  <p><strong>Python Code:</strong></p>
+  <pre>
+lower = int(input("Enter lower range limit: "))
+upper = int(input("Enter upper range limit: "))
+n = int(input("Enter the number to be divided by: "))
+
+for i in range(lower, upper + 1):
+    if i % n == 0:
+        print(i)
+  </pre>
+</div>
+
+<!-- Program Explanation -->
+<button class="btn" onclick="toggleContent('explanation')">Program Explanation</button>
+<div class="content" id="explanation">
+  <p>
+    1. User enters a lower limit, upper limit, and a divisor.<br>
+    2. A loop runs from the lower limit to upper limit.<br>
+    3. For each number in the loop, we check <code>i % n == 0</code>.<br>
+    4. If true, the number is divisible and printed to the output.
+  </p>
+</div>
+
+<!-- Runtime Test Cases -->
+<button class="btn" onclick="toggleContent('testcases')">Runtime Test Cases</button>
+<div class="content" id="testcases">
+  <p><strong>Case 1:</strong></p>
+  <pre>
+Enter lower range limit: 1
+Enter upper range limit: 50
+Enter the number to be divided by: 5
+
+Output:
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+  </pre>
+
+  <p><strong>Case 2:</strong></p>
+  <pre>
+Enter lower range limit: 50
+Enter upper range limit: 100
+Enter the number to be divided by: 7
+
+Output:
+56
+63
+70
+77
+84
+91
+98
+  </pre>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function toggleContent(id) {
+    const section = document.getElementById(id);
+    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

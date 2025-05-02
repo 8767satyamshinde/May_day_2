@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sum of Digits - Python Program</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f6fa;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .btn {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 6px;
+    }
+    .btn:hover {
+      background-color: #2c80b4;
+    }
+    .content {
+      display: none;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    pre {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Python Program: Sum of Digits in a Number</h1>
+
+<!-- Problem Description -->
+<button class="btn" onclick="toggleContent('desc')">Problem Description</button>
+<div class="content" id="desc">
+  <p>This program takes a number as input and calculates the sum of its digits using a while loop.</p>
+</div>
+
+<!-- Problem Solution -->
+<button class="btn" onclick="toggleContent('solution')">Problem Solution</button>
+<div class="content" id="solution">
+  <ol>
+    <li>Input a number from the user.</li>
+    <li>Initialize a total sum variable as 0.</li>
+    <li>Use a while loop to extract digits and add them to the sum.</li>
+    <li>Repeat until the number becomes 0.</li>
+    <li>Print the total sum.</li>
+  </ol>
+</div>
+
+<!-- Source Code -->
+<button class="btn" onclick="toggleContent('code')">Source Code</button>
+<div class="content" id="code">
+  <p><strong>Python Code:</strong></p>
+  <pre>
+n = int(input("Enter a number: "))
+tot = 0
+while n > 0:
+    dig = n % 10
+    tot = tot + dig
+    n = n // 10
+print("The total sum of digits is:", tot)
+  </pre>
+</div>
+
+<!-- Program Explanation -->
+<button class="btn" onclick="toggleContent('explanation')">Program Explanation</button>
+<div class="content" id="explanation">
+  <p>
+    1. The user inputs an integer.<br>
+    2. The loop gets the last digit using <code>n % 10</code>.<br>
+    3. Adds it to the total sum variable.<br>
+    4. Then removes the last digit using integer division <code>n = n // 10</code>.<br>
+    5. Repeats until <code>n</code> becomes 0.<br>
+    6. The final sum is printed.
+  </p>
+</div>
+
+<!-- Runtime Test Cases -->
+<button class="btn" onclick="toggleContent('testcases')">Runtime Test Cases</button>
+<div class="content" id="testcases">
+  <p><strong>Case 1:</strong></p>
+  <pre>
+Enter a number: 1892
+The total sum of digits is: 20
+  </pre>
+
+  <p><strong>Case 2:</strong></p>
+  <pre>
+Enter a number: 157
+The total sum of digits is: 13
+  </pre>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function toggleContent(id) {
+    const content = document.getElementById(id);
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

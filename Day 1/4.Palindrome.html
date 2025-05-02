@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Palindrome Program in Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h2 {
+      color: #333;
+    }
+    .button-container {
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .section {
+      display: none;
+      background-color: white;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 4px solid #007BFF;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Palindrome Program in Python</h2>
+
+  <div class="button-container">
+    <button onclick="showSection('desc')">Problem Description</button>
+    <button onclick="showSection('def')">What is Palindrome?</button>
+    <button onclick="showSection('method1')">Method 1: While Loop</button>
+    <button onclick="showSection('method2')">Method 2: Built-in Function</button>
+    <button onclick="showSection('method3')">Method 3: Recursion</button>
+    <button onclick="showSection('method4')">Method 4: Slicing</button>
+    <button onclick="showSection('complexity')">Output & Complexity</button>
+  </div>
+
+  <div id="desc" class="section">
+    <h3>Problem Description</h3>
+    <p>Write a Python program to check whether a given number is a palindrome.</p>
+  </div>
+
+  <div id="def" class="section">
+    <h3>What is Palindrome?</h3>
+    <p>A palindrome number is one that remains the same when reversed. Example: 121, 454, 888.</p>
+  </div>
+
+  <div id="method1" class="section">
+    <h3>Method 1: Using While Loop</h3>
+    <pre><code>
+n = int(input("Enter number:"))
+temp = n
+rev = 0
+while n > 0:
+    dig = n % 10
+    rev = rev * 10 + dig
+    n = n // 10
+if temp == rev:
+    print("The number is a palindrome!")
+else:
+    print("The number isn't a palindrome!")
+    </code></pre>
+    <p><strong>Explanation:</strong> Reverses the number using digit extraction and compares with original.</p>
+  </div>
+
+  <div id="method2" class="section">
+    <h3>Method 2: Using Built-in Function</h3>
+    <pre><code>
+def is_palindrome(n):
+    return str(n) == ''.join(reversed(str(n)))
+
+n = int(input("Enter number:"))
+if is_palindrome(n):
+    print("The number is a palindrome!")
+else:
+    print("The number is not a palindrome.")
+    </code></pre>
+    <p><strong>Explanation:</strong> Converts number to string, reverses it using built-in methods.</p>
+  </div>
+
+  <div id="method3" class="section">
+    <h3>Method 3: Using Recursion</h3>
+    <pre><code>
+def is_palindrome(n, temp, rev=0):
+    if n == 0:
+        return "Palindrome!" if temp == rev else "Not Palindrome!"
+    dig = n % 10
+    rev = rev * 10 + dig
+    return is_palindrome(n // 10, temp, rev)
+
+n = int(input("Enter number:"))
+print(is_palindrome(n, n))
+    </code></pre>
+    <p><strong>Explanation:</strong> Uses recursion to reverse number and check.</p>
+  </div>
+
+  <div id="method4" class="section">
+    <h3>Method 4: Using String Slicing</h3>
+    <pre><code>
+def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+
+n = int(input("Enter number:"))
+if is_palindrome(n):
+    print("Palindrome!")
+else:
+    print("Not Palindrome!")
+    </code></pre>
+    <p><strong>Explanation:</strong> Converts to string and checks with reverse slice.</p>
+  </div>
+
+  <div id="complexity" class="section">
+    <h3>Time & Space Complexity</h3>
+    <ul>
+      <li><strong>While Loop:</strong> Time - O(log n), Space - O(1)</li>
+      <li><strong>Built-in:</strong> Time - O(n), Space - O(1)</li>
+      <li><strong>Recursion:</strong> Time - O(log n), Space - O(log n)</li>
+      <li><strong>Slicing:</strong> Time - O(n), Space - O(n)</li>
+    </ul>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
